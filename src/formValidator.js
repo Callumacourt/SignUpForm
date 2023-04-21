@@ -3,18 +3,27 @@ const zipCodeRegexMap = {
   Canada: /^[A-Za-z]\d[A-Za-z] \d[A-Za-z]\d$/,
 };
 
-export const formValidator = {
-  validateEmail: email => {
-    const regex = /^\S+@\S+\.\S+$/;
-    return regex.test(email);
-  },
+let errorAdded = false;
 
-  validateZipCode: (country, zipCode) => {
-    const regex = zipCodeRegexMap[country];
-    if (regex) {
-      return regex.test(zipCode);
+export const formValidator = {
+  validateEmail: emailValue => {
+    const regex = /^\S+@\S+\.\S+$/;
+    if (!regex.test(emailValue) && !errorAdded) {
+      const errorMessage = document.createElement('div');
+      errorMessage.innerText =
+        'Please enter a valid email address in the format of name@example.com';
+      errorMessage.style.color = 'red';
+      const emailField = document.querySelector('.emailLi');
+      if (emailField) {
+        emailField.appendChild(errorMessage);
+        errorAdded = true;
+      }
+    } else if (regex.test(emailValue) && errorAdded) {
+      const errorMessage = document.querySelector('.emailLi div');
+      errorMessage.parentNode.removeChild(errorMessage);
+      errorAdded = false;
     }
-    return false; // country not found in map
+    return regex.test(emailValue);
   },
 
   confirmPassword: (password, passwordConfirm) => {
