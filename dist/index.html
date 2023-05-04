@@ -10,26 +10,75 @@
   <body>
     <main class="main">
       <div class="formContainer">
-        <form method="post">
+        <form class='form'>
           <ul>
             <li>
               <label for="name">Full name</label>
-              <input type="text" id="name" name="name" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Smith"
+            
+              />
             </li>
             <li class="emailLi">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="JohnSmith@gmail.com"
+              />
             </li>
-            <li>
+            <li class="country">
+              <label for="Country">Country</label>
+              <select name="country" id="country">
+                <option value="UK">UK</option>
+                <option value="USA">USA</option>
+                <option value="Japan">Japan</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="Canada">Canada</option>
+              </select>
+              <div class=></div>
+            </li>
+
+            <li class="zipCodeLi">
+              <label for="zipCode">Zip Code</label>
+              <input
+                type="text"
+                id="zipCode"
+                name="zipCode"
+                placeholder="Enter your zip code"
+              />
+            </li>
+            <li class="passwordLi">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" />
+              <input type="password"
+              id="password"
+              name="password"
+              <input type="text" pattern="[a-zA-Z0-9!@#$%^&*()_+=\-[\]{}|\\:;&quot;&apos;,.\?\/\s]+">
+          <div class='passwordValidator'>
+          <div class="lengthValidator"></div>
+          <p class='lengthMsg'>Password has 8 characters</p>
+          <div class="lowercaseValidator"></div>
+          <p class="lowercaseMsg">Password has a lowercase character</p>
+          <div class="uppercaseValidator"></div>
+          <p class="uppercaseMsg">Password has an uppercase character</p>
+          <div class="digitValidator"></div>
+          <p class="digitMsg">Password has at least one digit</p>
+          <div class="specialCharValidator"></div>
+          <div class="specialCharMsg">Password has at least one special character</div>
+          </div>
             </li>
-            <li>
+            <li class="passwordConfirmLi">
               <label for="passwordConfirm">Confirm Password</label>
               <input
                 type="password"
                 id="passwordConfirm"
                 name="passwordConfirm"
+                placeholder="MyP@ssw0rd!"
               />
             </li>
             <li>

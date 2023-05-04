@@ -25,5 +25,9 @@
     "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.3"
+  },
+  "dependencies": {
+    "i18n-iso-countries": "^7.6.0",
+    "postcode-validator": "^3.8.0"
   }
 }
